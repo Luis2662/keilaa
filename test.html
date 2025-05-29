@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Love Letter</title>
+<style>
+  body {
+    margin: 0;
+    background-color: #ffd6e7;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .envelope {
+    position: relative;
+    width: 560px;
+    height: 380px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    perspective: 1000px;
+  }
+
+  .flap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ff9abf;
+    z-index: 2;
+    transform-origin: top;
+    transition: transform 1s ease;
+    backface-visibility: hidden;
+  }
+
+  .flap::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 250px solid transparent;
+    border-right: 250px solid transparent;
+    border-top: 150px solid #ff9abf;
+  }
+
+  .envelope.open .flap {
+    transform: rotateX(180deg);
+  }
+
+  .letter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 1s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    overflow: auto;
+    max-height: 100%;
+  }
+
+  .envelope.open .letter {
+    opacity: 1;
+  }
+
+  .message h2 {
+    margin: 0 0 4px 0;
+    font-size: 22px;
+  }
+
+  .message p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 8px 0;
+  }
+
+  .footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .heart {
+    font-size: 20px;
+    color: red;
+    margin: 0;
+  }
+
+  .close-btn {
+    margin-top: 10px;
+    padding: 6px 14px;
+    border: none;
+    background: #ff9abf;
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .footer img {
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+  <div class="envelope" onclick="this.classList.toggle('open')">
+    <div class="flap"></div>
+    <div class="letter">
+      <div class="message">
+        <h2>hi babyy,</h2>
+        <p>
+          this is an appreciation letter so don't worry at 'di kita iiwan hehe.<br />
+          I just want u to know how much I deeply aprreciate you;<br />
+          First of all, I wanna thank you because you've made me the happiest person ever.<br />
+          With u being by my side, I feel at ease and happier because I have a person<br />
+          that will always support and cheer for me at times where I can't even believe in myself.<br />
+          I just want to also say na thank u for loving me in the most gentle way! ramdam na ramdam ko yung<br />
+          love and care mo sa 'kin kaya 'wag ka magalala at 'wag mo din isipin na hindi ko nararamdaman yun.<br />
+          I hope you'll always remember na ikaw at ikaw lang ang gusto and mahal ko.<br />
+          Despite us not talking that much recently, sa 'yo lang ako at IKAW lang ang gusto ko makasama buong buhay.<br /> 
+          I love and miss you so much, kei!<br /> 
+        </p>
+      </div>
+      <div class="footer">
+        <p class="heart">Forever yours, <br /> 💌</p>
+        <button class="close-btn" onclick="event.stopPropagation(); this.closest('.envelope').classList.remove('open')">Close</button>
+        <img src="https://media.discordapp.net/attachments/1106580083369594880/1377433302146744370/IMG_4753.png?ex=6838f23a&is=6837a0ba&hm=e507579c435eeabda5f80fa814918a68fe0553bb46773dba423519ff4ff0e64e&=&format=webp&quality=lossless&width=721&height=535" alt="keilaaa" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>
